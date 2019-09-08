@@ -1,0 +1,4 @@
+#!/bin/bash
+source <path to rvm>
+cd <path to rails root>
+RAILS_ENV=development bundle exec rake seed:site_data[5]
