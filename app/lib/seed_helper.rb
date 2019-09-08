@@ -23,8 +23,10 @@ class SeedHelper
     [['current_temp', 40, 100, 'F'],
     ['current_pressure', 1008, 1020, 'mbar'],
     ['current_wind_speed', 0, 30, 'km/h'], ['fct_temp', 40, 100, 'F'],
-    ['current_pressure', 1008, 1020, 'mbar'],
-    ['current_wind_speed', 0, 30, 'km/h']].each do |data|
+    ['fct_temp', 40, 100, 'F'],
+    ['fct_pressure', 1008, 1020, 'mbar'],
+    ['fct_wind_speed', 0, 30, 'km/h'],
+    ['flyability_score', -1, 1, 'mbar'],].each do |data|
       data_points.times do |t|
         site.site_data.create(parameter_type: data[0],
           value: rand(data[1]..data[2]), timestamp: current_time + t.hours,
