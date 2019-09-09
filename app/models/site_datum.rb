@@ -1,4 +1,5 @@
 class SiteDatum < ApplicationRecord
+  belongs_to :forecast_batch, optional: true
   belongs_to :site
 
   scope :current, -> do

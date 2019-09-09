@@ -10,7 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_06_231427) do
+ActiveRecord::Schema.define(version: 2019_09_08_191243) do
+
+  create_table "forecast_batches", force: :cascade do |t|
+    t.string "model"
+    t.datetime "model_rundate"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "site_data", force: :cascade do |t|
     t.integer "site_id"
@@ -20,6 +27,7 @@ ActiveRecord::Schema.define(version: 2019_09_06_231427) do
     t.string "unit"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "forecast_batch_id"
     t.index ["site_id"], name: "index_site_data_on_site_id"
   end
 
