@@ -1,11 +1,13 @@
 namespace :seed do
 
   desc 'Seed Sites and SiteData'
-  task :sites_and_site_data, [:sites, :data_points] => :environment do |_, args|
-    args[:sites].to_i.times do
-      site = SeedHelper.seed_site
-      SeedHelper.seed_site_data(args[:data_points].to_i, site.id)
+  task :sites_and_site_data, [:data_points] => :environment do |_, args|
+    SeedHelper::SITE_NAMES.each do |name|
+      next if Site.find_by(name: name)
+      site = SeedHelper.seed_site(name)
+
     end
+    SeedHelper.seed_site_data(args[:data_points].to_i)
   end
 
   desc 'Seed SiteData'
