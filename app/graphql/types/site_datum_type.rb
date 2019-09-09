@@ -5,5 +5,11 @@ module Types
     field :timestamp, Types::DateTimeType, null: false
     field :value, String, null: true
     field :unit, String, null: true
+    field :forecast_model, String, null: true
+
+    def forecast_model
+      object.forecast_batch.try(:model)
+    end
+
   end
 end
